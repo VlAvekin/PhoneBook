@@ -2,6 +2,13 @@
 
 <@common.page>
 
+    <div>
+        <form action="/logout" method="post">
+            <input type="hidden" name="_csrf" value="${_csrf.token}" />
+            <input type="submit" value="Sign Out"/>
+        </form>
+    </div>
+
     <form method="post">
         <input type="hidden" name="_csrf" value="${_csrf.token}" />
 
@@ -37,9 +44,10 @@
     </form>
 
     <form method="get" action="/phoneBook" class="mt-5">
+        <input type="hidden" name="_csrf" value="${_csrf.token}" />
         <div class="form-row">
             <div class="form-group col-md-6">
-                <input class="form-control" type="text" name="search" value="" placeholder="Search">
+                <input class="form-control" type="text" name="search" value="" placeholder="Search" />
             </div>
             <div class="form-group col-md-6">
                 <button type="submit" class="btn btn-primary ml-2">Search</button>
@@ -59,6 +67,7 @@
                 <th scope="col">Home Phone</th>
                 <th scope="col">Address</th>
                 <th scope="col">Email</th>
+                <th scope="col">Author</th>
                 <th scope="col"></th>
             </tr>
         </thead>
@@ -73,6 +82,7 @@
             <td>${phoneBook.homePhone}</td>
             <td>${phoneBook.address}</td>
             <td>${phoneBook.email}</td>
+            <td>${phoneBook.author.username}</td>
             <td>
                 <div class="form-row">
                     <#--<form method="get" action="/phoneBook/${phoneBook.id}">-->
@@ -80,6 +90,7 @@
                         <button type="button" class="btn btn-primary ml-2 btn-sm">Edit</button>
                     <#--</form>-->
                     <form method="post" action="/phoneBook/${phoneBook.id}">
+                        <input type="hidden" name="_csrf" value="${_csrf.token}" />
                         <button type="submit" class="btn btn-primary ml-2 btn-sm">X</button>
                     </form>
                 </div>

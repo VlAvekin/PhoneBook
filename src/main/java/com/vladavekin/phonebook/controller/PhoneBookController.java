@@ -1,8 +1,10 @@
 package com.vladavekin.phonebook.controller;
 
 import com.vladavekin.phonebook.domain.PhoneBookData;
+import com.vladavekin.phonebook.domain.User;
 import com.vladavekin.phonebook.repos.PhoneBookDataRepo;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.core.annotation.AuthenticationPrincipal;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -37,8 +39,11 @@ public class PhoneBookController {
 
     @PostMapping("/phoneBook")
     public String add(
+            @AuthenticationPrincipal User user,
             @Valid PhoneBookData pdb,
             Model model) {
+
+        pdb.setAuthor(user);
 
         pbdRepo.save(pdb);
 
@@ -59,7 +64,7 @@ public class PhoneBookController {
 
         phoneBookList(model);
 
-        return "phoneBook";
+        return "redirect:/phoneBook";
     }
 
     private void phoneBookList(Model model) {

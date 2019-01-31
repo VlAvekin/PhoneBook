@@ -15,28 +15,32 @@ public class PhoneBookData {
     private Long id;
 
     @NotNull
-    @Column(name = "last_name")
+    @JoinColumn(name = "last_name")
     private String lastName;
 
     @NotNull
-    @Column(name = "name")
+    @JoinColumn(name = "name")
     private String name;
 
     @NotNull
-    @Column(name = "patronymic")
+    @JoinColumn(name = "patronymic")
     private String patronymic;
 
     @NotNull
-    @Column(name = "mobile_phone")
+    @JoinColumn(name = "mobile_phone")
     private String mobilePhone;
 
-    @Column(name = "home_phone")
+    @JoinColumn(name = "home_phone")
     private String homePhone;
 
-    @Column(name = "address")
+    @JoinColumn(name = "address")
     private String address;
 
-    @Column(name = "e_mail")
+    @JoinColumn(name = "e_mail")
     private String email;
+
+   @JoinColumn(name = "user_id")
+   @ManyToOne(fetch = FetchType.EAGER)
+   private User author;
 
 }
