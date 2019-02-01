@@ -12,11 +12,15 @@
 
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
         <ul class="navbar-nav mr-auto">
-            <#--<#if user??>-->
             <li class="nav-item">
                 <a class="nav-link" href="/phoneBook">List phone book</a>
             </li>
-            <#--</#if>-->
+
+            <#if user??>
+                <li class="nav-item">
+                    <a class="nav-link" href="/profile">Profile <span class="sr-only">(current)</span></a>
+                </li>
+            </#if>
         </ul>
     </div>
 
@@ -24,5 +28,5 @@
         <div class="navbar-text mr-3">${name}</div>
     </#if>
 
-    <@l.logout/>
+    <@l.logout user??/>
 </nav>

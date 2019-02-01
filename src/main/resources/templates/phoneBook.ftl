@@ -70,9 +70,9 @@
             <td>${phoneBook.firstName}</td>
             <td>${phoneBook.patronymic}</td>
             <td>${phoneBook.mobilePhone}</td>
-            <td>${phoneBook.homePhone}</td>
-            <td>${phoneBook.address}</td>
-            <td>${phoneBook.email}</td>
+            <td>${phoneBook.homePhone!''}</td>
+            <td>${phoneBook.address!''}</td>
+            <td>${phoneBook.email!''}</td>
             <td>${phoneBook.author.username}</td>
             <td>
                 <div class="form-row">
