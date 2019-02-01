@@ -1,13 +1,5 @@
 <#import "parts/common.ftl" as common>
-
 <@common.page>
-
-    <div>
-        <form action="/logout" method="post">
-            <input type="hidden" name="_csrf" value="${_csrf.token}" />
-            <input type="submit" value="Sign Out"/>
-        </form>
-    </div>
 
     <form method="post">
         <input type="hidden" name="_csrf" value="${_csrf.token}" />
@@ -17,7 +9,7 @@
                 <input class="form-control" type="text" name="lastName" placeholder="Last Name"/>
             </div>
             <div class="form-group col-md-4">
-                <input class="form-control" type="text" name="name" placeholder="Name"/>
+                <input class="form-control" type="text" name="firstName" placeholder="First Name"/>
             </div>
             <div class="form-group col-md-4">
                 <input class="form-control" type="text" name="patronymic" placeholder="Patronymic"/>
@@ -43,8 +35,7 @@
         <button type="submit" class="btn btn-primary ml-2">Submit</button>
     </form>
 
-    <form method="get" action="/phoneBook" class="mt-5">
-        <input type="hidden" name="_csrf" value="${_csrf.token}" />
+    <form method="get"  class="mt-5">
         <div class="form-row">
             <div class="form-group col-md-6">
                 <input class="form-control" type="text" name="search" value="" placeholder="Search" />
@@ -61,7 +52,7 @@
             <tr>
                 <th scope="col">#</th>
                 <th scope="col">Last Name</th>
-                <th scope="col">Name</th>
+                <th scope="col">First Name</th>
                 <th scope="col">Patronymic</th>
                 <th scope="col">Mobile Phone</th>
                 <th scope="col">Home Phone</th>
@@ -76,7 +67,7 @@
             <tr>
             <td scope="row">${phoneBook.id}</td>
             <td>${phoneBook.lastName}</td>
-            <td>${phoneBook.name}</td>
+            <td>${phoneBook.firstName}</td>
             <td>${phoneBook.patronymic}</td>
             <td>${phoneBook.mobilePhone}</td>
             <td>${phoneBook.homePhone}</td>

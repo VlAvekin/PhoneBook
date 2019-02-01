@@ -10,8 +10,10 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 
 import javax.validation.Valid;
+import java.util.List;
 
 @Controller
 public class PhoneBookController {
@@ -20,9 +22,19 @@ public class PhoneBookController {
     PhoneBookDataRepo pbdRepo;
 
     @GetMapping("/phoneBook")
-    public String getList(Model model) {
+    public String getList(@RequestParam(required = false, defaultValue = "") String search,
+                          Model model) {
 
-        phoneBookList(model);
+        Iterable<PhoneBookData> pbdList;
+
+        if (search != null && !search.isEmpty()){
+            pbdList =
+                    pbdRepo.findBySearch(search);
+        } else {
+            pbdList = pbdRepo.findAll();
+        }
+
+        model.addAttribute("phoneBooks", pbdList);
 
         return "phoneBook";
     }

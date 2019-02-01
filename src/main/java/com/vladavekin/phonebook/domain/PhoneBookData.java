@@ -19,8 +19,8 @@ public class PhoneBookData {
     private String lastName;
 
     @NotNull
-    @JoinColumn(name = "name")
-    private String name;
+    @JoinColumn(name = "first_name")
+    private String firstName;
 
     @NotNull
     @JoinColumn(name = "patronymic")
