@@ -1,11 +1,15 @@
 package com.vladavekin.phonebook.domain;
 
 import lombok.Data;
+import org.hibernate.validator.constraints.Length;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
 
 import javax.persistence.*;
+import javax.validation.Valid;
+import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.NotNull;
+import javax.validation.constraints.Size;
 import java.util.Collection;
 import java.util.Set;
 
@@ -18,16 +22,23 @@ public class User implements UserDetails{
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
 
-    @NotNull
-    @JoinColumn(name = "login")
+    @NotNull()
+    @JoinColumn(name = "username")
+    @Size(min = 3, message = "User name minimum 3 char")
     private String username;
 
     @NotNull
     @JoinColumn(name = "password")
+    @Size(min = 5, message = "Password minimum 5 char")
     private String password;
+
+    @Transient
+    @Size(min = 5, message = "Password minimum 5 char")
+    private String password2;
 
     @NotNull
     @JoinColumn(name = "full_name")
+    @Size(min = 5, message = "Full name minimum 5 char")
     private String fullName;
 
     @NotNull
@@ -38,6 +49,9 @@ public class User implements UserDetails{
     @CollectionTable(name = "user_role", joinColumns = @JoinColumn(name = "user_id"))
     @Enumerated(EnumType.STRING)
     private Set<Role> roles;
+
+    @OneToMany(mappedBy = "author", cascade = CascadeType.ALL, fetch = FetchType.LAZY)
+    private Set<PhoneBookData> phoneBookData;
 
     @Override
     public Collection<? extends GrantedAuthority> getAuthorities() {
