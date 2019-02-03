@@ -13,10 +13,13 @@
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
         <ul class="navbar-nav mr-auto">
             <li class="nav-item">
-                <a class="nav-link" href="/phoneBook">List phone book</a>
+                <a class="nav-link" href="/phoneBook">All phonebook</a>
             </li>
 
             <#if user??>
+                <li class="nav-item">
+                    <a class="nav-link" href="/user-phone-book/${currentUserId}">My phonebook <span class="sr-only">(current)</span></a>
+                </li>
                 <li class="nav-item">
                     <a class="nav-link" href="/profile">Profile <span class="sr-only">(current)</span></a>
                 </li>
