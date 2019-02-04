@@ -50,8 +50,4 @@ public class RegistrationController {
         return "redirect:/login";
     }
 
-//    static String validLength(Integer length, Integer valid, String errors) {
-//
-//    }
-
 }

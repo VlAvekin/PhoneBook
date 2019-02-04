@@ -5,7 +5,7 @@
     </a>
 </div>
 <div class="collapse <#if phoneBook??>show</#if> mt-3" id="collapseExample">
-    <form method="post">
+    <form method="post" action="/user-phone-book">
 
         <div class="form-row">
             <div class="form-group col-md-4">
@@ -85,7 +85,7 @@
         </div>
 
         <input type="hidden" name="_csrf" value="${_csrf.token}" />
-        <#--<input type="hidden" name="id" value="<#if phoneBook??>${phoneBook.id}</#if>" />-->
+        <input type="hidden" name="id" value="<#if phoneBook??>${phoneBook.id}</#if>"/>
         <div align="center">
         <button type="submit" class="btn btn-primary ml-2">Save</button>
         </div>
