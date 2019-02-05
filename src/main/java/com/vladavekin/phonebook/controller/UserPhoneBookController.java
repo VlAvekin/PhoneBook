@@ -27,7 +27,14 @@ public class UserPhoneBookController {
                                @RequestParam(required = false) PhoneBookData phoneBook,
                                Model model) {
 
-        Set<PhoneBookData> phoneBooks = user.getPhoneBookData();
+        Set<PhoneBookData> phoneBooks;
+
+        if (search != null && !search.isEmpty()){
+            phoneBooks = pbdRepo.findBySearchByUser(search, user);
+        } else {
+            phoneBooks = user.getPhoneBookData();
+        }
+
         model.addAttribute("phoneBooks", phoneBooks);
 
         if (phoneBook != null){

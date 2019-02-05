@@ -22,7 +22,7 @@ public class PhoneBookController {
 
         if (search != null && !search.isEmpty()){
             pbdList =
-                    pbdRepo.findBySearch(search);
+                    pbdRepo.findBySearchAll(search);
         } else {
             pbdList = pbdRepo.findAll();
         }
