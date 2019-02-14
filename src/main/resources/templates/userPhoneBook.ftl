@@ -1,11 +1,9 @@
 <#import "parts/common.ftl" as common>
 <#include "parts/security.ftl">
-
+<#import "parts/phoneBookEdit.ftl" as pb>
 <@common.page>
 
-    <#if isCurrentUser>
-        <#include "parts/phoneBookEdit.ftl">
-    </#if>
+    <@pb.book false/>
 
     <#include "parts/phoneBookList.ftl">
 

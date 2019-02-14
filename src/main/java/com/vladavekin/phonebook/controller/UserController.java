@@ -11,6 +11,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 
 import javax.validation.Valid;
+import java.io.IOException;
 import java.util.Map;
 
 @Controller
@@ -34,7 +35,7 @@ public class UserController {
     public String updateProfile(@AuthenticationPrincipal User currentUser,
                                 @Valid User user,
                                 BindingResult bindingResult,
-                                Model model) {
+                                Model model) throws IOException {
 
         if (user.getPassword() != null && !user.getPassword().equals(user.getPassword2())) {
             model.addAttribute("passwordError", "Passwords are different!");
@@ -52,7 +53,6 @@ public class UserController {
             model.addAttribute("fullName", currentUser.getFullName());
             return "profile";
         }
-
 
         userService.updateProfile(currentUser, user.getPassword(), user.getFullName());
 

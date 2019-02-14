@@ -1,0 +1,13 @@
+[
+  {"id":1,"username":"one","password":"$2a$08$G0xhTx/JECGue8xHlWLSmOp.7j0lgUuGKu9ivgsv3I5uPGLpLr/Fa","password2":"12345","fullName":"User Users","active":true},
+  {"id":2,"username":"two","password":"$2a$08$G0xhTx/JECGue8xHlWLSmOp.7j0lgUuGKu9ivgsv3I5uPGLpLr/Fa","password2":"123456","fullName":"User Users","active":true,"phoneBookData":[{"id":1,"lastName":"LastFame","firstName":"FirstName","patronymic":"Patronymic","mobilePhone":"+380999999999"}]},
+{"id":3,"username":"three","password":"12345","password2":"12345","fullName":"User","active":true,"phoneBookData":[{"id":1,"lastName":"LastName","firstName":"FirstName","patronymic":"Patronymic","mobilePhone":"+380999999999"},{"id":2,"lastName":"LastName","firstName":"FirstName","patronymic":"Patronymic","mobilePhone":"+380999999999"}]},
+  {"id":4,"username":"four","password":"12345","password2":"12345","fullName":"User","active":true,"phoneBookData":[{"id":1,"lastName":"One","firstName":"FirstName","patronymic":"Patronymic","mobilePhone":"+380999999999"}, {"id":2,"lastName":"Two","firstName":"FirstName","patronymic":"Patronymic","mobilePhone":"+380999999999"}]},
+  {"id":5,"username":"five","password":"12345","password2":"12345","fullName":"User","active":true},
+  {"id":6,"username":"six","password":"12345","password2":"12345","fullName":"User","active":true,"phoneBookData":[{"id":1,"lastName":"Six","firstName":"FirstName","patronymic":"Patronymic","mobilePhone":"+380999999999"}]},
+  {"id":7,"username":"seven","password":"12345","password2":"12345","fullName":"User","active":true},
+  {"id":8,"username":"eight","password":"12345","password2":"12345","fullName":"User","active":true,"phoneBookData":[{"id":1,"lastName":"LastName","firstName":"FirstName","patronymic":"Patronymic","mobilePhone":"+380999999999"}]},
+  {"id":9,"username":"nine","password":"12345","password2":"12345","fullName":"User","active":true},
+  {"id":10,"username":"ten","password":"12345","password2":"12345","fullName":"User","active":true,"phoneBookData":[{"id":1,"lastName":"LastName","firstName":"FirstName","patronymic":"Patronymic","mobilePhone":"+380999999999"}]},
+  {"id":11,"username":"eleven","password":"12345","password2":"12345","fullName":"User","active":true}
+]

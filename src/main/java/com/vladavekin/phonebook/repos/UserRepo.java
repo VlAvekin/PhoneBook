@@ -1,10 +1,16 @@
 package com.vladavekin.phonebook.repos;
 
 import com.vladavekin.phonebook.domain.User;
-import org.springframework.data.jpa.repository.JpaRepository;
 
-public interface UserRepo extends JpaRepository<User, Long> {
+import java.io.IOException;
+import java.util.Optional;
+
+public interface UserRepo {
 
     User findByUsername(String username);
+
+    User save(User user) throws IOException;
+
+    Optional<User> findById(Long id) throws IOException;
 
 }

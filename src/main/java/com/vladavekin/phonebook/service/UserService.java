@@ -1,9 +1,10 @@
 package com.vladavekin.phonebook.service;
 
-import com.vladavekin.phonebook.domain.Role;
 import com.vladavekin.phonebook.domain.User;
 import com.vladavekin.phonebook.repos.UserRepo;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Value;
+import org.springframework.context.ApplicationContext;
 import org.springframework.context.annotation.Bean;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UserDetailsService;
@@ -13,14 +14,20 @@ import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 import org.springframework.util.StringUtils;
 
-import java.util.Collections;
-import java.util.Optional;
+import java.io.IOException;
 
 @Service
 public class UserService implements UserDetailsService {
 
-    @Autowired
+    @Value("${user.repo.class}")
+    private String nameUser;
+
     private UserRepo userRepo;
+
+    @Autowired
+    public void setUserRepo(ApplicationContext context) {
+        this.userRepo = (UserRepo) context.getBean(nameUser);
+    }
 
     @Autowired
     private PasswordEncoder passwordEncoder;
@@ -31,7 +38,8 @@ public class UserService implements UserDetailsService {
     }
 
     @Override
-    public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
+    public UserDetails loadUserByUsername(String username) {
+
         User user = userRepo.findByUsername(username);
 
         if (user == null){
@@ -41,7 +49,9 @@ public class UserService implements UserDetailsService {
         return user;
     }
 
-    public void updateProfile(User user, String password, String fullName) {
+    public void updateProfile(User user, String password, String fullName) throws IOException {
+
+        user = userRepo.findById(user.getId()).get();
 
         if (!StringUtils.isEmpty(password)) {
             user.setPassword(passwordEncoder.encode(password));
@@ -55,7 +65,7 @@ public class UserService implements UserDetailsService {
     }
 
 
-    public boolean addNewUser(User user) {
+    public boolean addNewUser(User user) throws IOException {
         User userFromDb = userRepo.findByUsername(user.getUsername());
 
         if (userFromDb != null){
@@ -63,7 +73,6 @@ public class UserService implements UserDetailsService {
         }
 
         user.setActive(true);
-        user.setRoles(Collections.singleton(Role.USER));
         user.setPassword(passwordEncoder.encode(user.getPassword()));
 
         userRepo.save(user);

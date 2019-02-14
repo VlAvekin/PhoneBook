@@ -5,7 +5,6 @@ import org.hibernate.validator.constraints.Length;
 
 import javax.persistence.*;
 import javax.validation.constraints.Email;
-import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
 
@@ -35,8 +34,7 @@ public class PhoneBookData {
 
     @NotNull
     @JoinColumn(name = "mobile_phone")
-    @NotBlank(message = "Please fill the mobile phone")
-    @Size(max = 13, message = "Mobile phone maximum 13 char format +380(66)1234567")
+    @Length(min = 13, max = 13, message = "Mobile phone length 13 char format +380661234567")
     private String mobilePhone;
 
     @JoinColumn(name = "home_phone")

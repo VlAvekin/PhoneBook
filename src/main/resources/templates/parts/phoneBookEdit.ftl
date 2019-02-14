@@ -1,11 +1,14 @@
+<#include "security.ftl">
+
+<#macro book isForm>
 <div align="center">
     <a class="btn btn-primary" data-toggle="collapse" href="#collapseExample"
        role="button" aria-expanded="false" aria-controls="collapseExample">
-        Add new entry to phonebook
+        ${(isForm)?string('Add new entry to phonebook','Edit')}
     </a>
 </div>
 <div class="collapse <#if phoneBook??>show</#if> mt-3" id="collapseExample">
-    <form method="post" action="/user-phone-book">
+    <form method="post">
 
         <div class="form-row">
             <div class="form-group col-md-4">
@@ -85,9 +88,12 @@
         </div>
 
         <input type="hidden" name="_csrf" value="${_csrf.token}" />
+        <#if !isForm>
         <input type="hidden" name="id" value="<#if phoneBook??>${phoneBook.id}</#if>"/>
+        </#if>
         <div align="center">
         <button type="submit" class="btn btn-primary ml-2">Save</button>
         </div>
     </form>
 </div>
+</#macro>
