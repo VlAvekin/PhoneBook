@@ -2,6 +2,7 @@ package com.vladavekin.phonebook.service;
 
 import com.google.gson.Gson;
 import com.vladavekin.phonebook.domain.User;
+import com.vladavekin.phonebook.service.FileJson;
 import org.junit.Test;
 
 import java.io.IOException;

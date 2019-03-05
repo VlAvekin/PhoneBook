@@ -28,7 +28,7 @@ public class PhoneBookController {
     private PhoneBookDataRepo pbdRepo;
 
     @Autowired
-    public void setPbdRepo(ApplicationContext context){
+    private void setPbdRepo(ApplicationContext context){
         pbdRepo = (PhoneBookDataRepo) context.getBean(namePBD);
     }
 

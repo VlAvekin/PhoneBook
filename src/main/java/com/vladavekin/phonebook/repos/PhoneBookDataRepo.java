@@ -11,10 +11,9 @@ public interface PhoneBookDataRepo {
 
     PhoneBookData save(PhoneBookData phoneBook) throws IOException;
 
-    void delete(PhoneBookData phoneBookData) throws IOException;
-
     Iterable<PhoneBookData> findBySearchAll(String search) throws IOException;
 
     Iterable<PhoneBookData> findAll() throws IOException;
 
+    void delete(PhoneBookData phoneBookData) throws IOException;
 }

@@ -15,33 +15,30 @@
                 <input class="form-control ${(lastNameError??)?string('is-invalid','')}"
                        type="text" name="lastName" placeholder="Last Name"
                        onkeyup=" return validateTextCol(this, 4); "
-                       value="<#if phoneBook??>${phoneBook.lastName}</#if>"/>
+                       value="<#if phoneBook??>${phoneBook.lastName}</#if>"
+                       id="lastName"/>
                 <#if lastNameError??>
-                    <div class="invalid-feedback">
-                        ${lastNameError}
-                    </div>
+                    <div class="invalid-feedback" id="lastName">${lastNameError}</div>
                 </#if>
             </div>
             <div class="form-group col-md-4">
                 <input class="form-control ${(firstNameError??)?string('is-invalid','')}"
                        type="text" name="firstName" placeholder="First Name"
                        onkeyup=" return validateTextCol(this, 4); "
-                       value="<#if phoneBook??>${phoneBook.firstName}</#if>"/>
+                       value="<#if phoneBook??>${phoneBook.firstName}</#if>"
+                       id="firstName"/>
                 <#if firstNameError??>
-                    <div class="invalid-feedback">
-                    ${firstNameError}
-                    </div>
+                    <div class="invalid-feedback" id="firstName">${firstNameError}</div>
                 </#if>
             </div>
             <div class="form-group col-md-4">
                 <input class="form-control ${(patronymicError??)?string('is-invalid','')}"
                        type="text" name="patronymic" placeholder="Patronymic"
                        onkeyup=" return validateTextCol(this, 4); "
-                       value="<#if phoneBook??>${phoneBook.patronymic}</#if>"/>
+                       value="<#if phoneBook??>${phoneBook.patronymic}</#if>"
+                       id="patronymic"/>
                 <#if patronymicError??>
-                    <div class="invalid-feedback">
-                    ${patronymicError}
-                    </div>
+                    <div class="invalid-feedback" id="patronymic">${patronymicError}</div>
                 </#if>
             </div>
         </div>
@@ -54,21 +51,21 @@
                            onkeyup=" return validatephone(this); "
                            value="<#if phoneBook??>${phoneBook.mobilePhone}</#if>"/>
                     <#if mobilePhoneError??>
-                        <div class="invalid-feedback">
-                        ${mobilePhoneError}
-                        </div>
+                        <div class="invalid-feedback" id="mobilePhone">${mobilePhoneError}</div>
                     </#if>
             </div>
             <div class="form-group col-md-6">
                 <input class="form-control" type="text" name="homePhone" placeholder="Home Phone"
-                       value="<#if phoneBook??>${phoneBook.homePhone}</#if>"/>
+                       value="<#if phoneBook??>${phoneBook.homePhone}</#if>"
+                       id="homePhone"/>
             </div>
         </div>
 
         <div class="form-row">
             <div class="form-group col-md-6">
                 <input class="form-control" type="text" name="address" placeholder="Address"
-                       value="<#if phoneBook??>${phoneBook.address}</#if>"/>
+                       value="<#if phoneBook??>${phoneBook.address}</#if>"
+                       id="address"/>
             </div>
             <div class="form-group col-md-6">
                 <div class="input-group">
@@ -79,9 +76,7 @@
                            id="inputEmail4" type="text" name="email" placeholder="Email"
                            value="<#if phoneBook??>${phoneBook.email}</#if>"/>
                     <#if emailError??>
-                        <div class="invalid-feedback">
-                        ${emailError}
-                        </div>
+                        <div class="invalid-feedback" id="email">${emailError}</div>
                     </#if>
                 </div>
             </div>

@@ -28,7 +28,7 @@
     </thead>
     <tbody>
     <#list phoneBooks as phoneBook>
-        <tr>
+        <tr data_id="${phoneBook.id}">
             <td>${phoneBook.lastName}</td>
             <td>${phoneBook.firstName}</td>
             <td>${phoneBook.patronymic}</td>

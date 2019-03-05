@@ -78,11 +78,11 @@ public class UserPhoneBookController {
 
     @PostMapping("/user-phone-book/{user}")
     public String edit(@AuthenticationPrincipal User currentUser,
-                        @PathVariable Long user,
-                        @RequestParam("id") Long phoneBookId,
-                        @Valid PhoneBookData pdb,
-                        BindingResult bindingResult,
-                        Model model) throws IOException {
+                       @PathVariable Long user,
+                       @RequestParam("id") Long phoneBookId,
+                       @Valid PhoneBookData pdb,
+                       BindingResult bindingResult,
+                       Model model) throws IOException {
 
         model.addAttribute("isCurrentUser", currentUser.equals(user));
 
@@ -110,16 +110,15 @@ public class UserPhoneBookController {
         }
 
 
+
         return "redirect:/user-phone-book/" + user;
     }
 
     @PostMapping("/user-phone-book/{userId}/{pbdId}")
-    public String delete(@PathVariable Long pbdId,
+    public String delete(@PathVariable PhoneBookData pbdId,
                          @PathVariable Long userId) throws IOException {
 
-        PhoneBookData phoneBookData = getPhoneBookData(pbdId, userId);
-
-        pbdRepo.delete(phoneBookData);
+        pbdRepo.delete(pbdId);
 
         return "redirect:/user-phone-book/" + userId;
     }
@@ -150,5 +149,4 @@ public class UserPhoneBookController {
         actual.setActive(user.isActive());
         return actual;
     }
-
 }

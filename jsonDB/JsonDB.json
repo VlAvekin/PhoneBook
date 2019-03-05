@@ -1,0 +1,5 @@
+[
+{"id":1,"username":"user","password":"$2a$08$dqyhgFSlnzXPU9xnaRAuHu6FTrUtuiNzYCjsMaOWMa9mWzIy38CMa","fullName":"Users","active":true,"phoneBookData":[{"id":2,"lastName":"Avekin","firstName":"Yroslav","patronymic":"Vladim","mobilePhone":"+380959493849","homePhone":"","address":"","email":""}]},
+{"id":2,"username":"qwerty","password":"$2a$08$4exhuTpaZqwLKByWR5IsDOIJ5.nCGgW6m8qcFQQ5jTl7Gi.esEWXG","fullName":"qwerty","active":true,"phoneBookData":[{"id":1,"lastName":"Avekina","firstName":"Tamila","patronymic":"Nicola","mobilePhone":"+380999501642","homePhone":"","address":"","email":""},{"id":2,"lastName":"LastName","firstName":"FirstName","patronymic":"Patronymic","mobilePhone":"+380999999999"}]},
+{"id":3,"username":"vlad","password":"$2a$08$CuTXpWgVLH1upFtAyOyedOVWaIxqzhFTZMZ/t4knnbxOI5EsQbMyq","fullName":"Avekin Vladislav","active":true,"phoneBookData":[{"id":3,"lastName":"Avekina","firstName":"Tamila","patronymic":"Nicola","mobilePhone":"+380999501642","homePhone":"","address":"","email":""},{"id":4,"lastName":"Avekin","firstName":"Vladimir","patronymic":"Vasil","mobilePhone":"+380999501642","homePhone":"","address":"","email":""}]}
+]

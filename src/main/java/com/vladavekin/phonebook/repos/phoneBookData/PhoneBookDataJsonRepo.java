@@ -199,6 +199,9 @@ public class PhoneBookDataJsonRepo implements PhoneBookDataRepo {
 
         final User user = phoneBookData.getAuthor();
         phoneBookData.setAuthor(null);
+
+        System.out.println(user);
+
         User actual = userJsonRepo
                 .findById(user.getId())
                 .get();

@@ -21,7 +21,7 @@ public class UserController {
     private UserService userService;
 
     @GetMapping("/profile")
-    public String getProgile(
+    public String getProfile(
                              @AuthenticationPrincipal User user,
                              Model model) {
 

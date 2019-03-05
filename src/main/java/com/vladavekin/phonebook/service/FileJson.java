@@ -20,7 +20,7 @@ public class FileJson {
 
         List<String> jsons = read();
         User expectedUser;
-        // TODO -> O(n) => O(log[n]) (sorting phone book)
+        /** O(n) => O(log[n]) (sorting phone book) */
         for (int i = 0; i < jsons.size(); i++) {
 
             expectedUser = gson.fromJson(jsons.get(i), User.class);

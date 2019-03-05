@@ -25,7 +25,7 @@ public class UserService implements UserDetailsService {
     private UserRepo userRepo;
 
     @Autowired
-    public void setUserRepo(ApplicationContext context) {
+    private void setUserRepo(ApplicationContext context) {
         this.userRepo = (UserRepo) context.getBean(nameUser);
     }
 
@@ -49,19 +49,18 @@ public class UserService implements UserDetailsService {
         return user;
     }
 
-    public void updateProfile(User user, String password, String fullName) throws IOException {
+    public boolean updateProfile(User user, String password, String fullName) throws IOException {
 
-        user = userRepo.findById(user.getId()).get();
+        //user = userRepo.findById(user.getId()).get();
 
-        if (!StringUtils.isEmpty(password)) {
-            user.setPassword(passwordEncoder.encode(password));
+        if (StringUtils.isEmpty(password) && StringUtils.isEmpty(fullName)) {
+            return false;
         }
-
-        if (!StringUtils.isEmpty(fullName)) {
-            user.setFullName(fullName);
-        }
+        user.setPassword(passwordEncoder.encode(password));
+        user.setFullName(fullName);
 
         userRepo.save(user);
+        return true;
     }
 
 

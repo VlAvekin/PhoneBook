@@ -9,9 +9,7 @@
                     type="text" name="fullName" value="<#if user??>${user.fullName}</#if>"
                     onkeyup=" return validateTextCol(this, 5); "/>
                 <#if fullNameError??>
-                    <div class="invalid-feedback">
-                    ${fullNameError}
-                    </div>
+                    <div class="invalid-feedback" id="fullName">${fullNameError}</div>
                 </#if>
             </div>
         </div>
@@ -24,9 +22,7 @@
                     type="text" name="username" value="<#if user??>${user.username}</#if>"
                     onkeyup=" return validateTextCol(this, 3, 'en'); "/>
                 <#if usernameError??>
-                    <div class="invalid-feedback">
-                    ${usernameError}
-                    </div>
+                    <div class="invalid-feedback" id="username">${usernameError}</div>
                 </#if>
             </div>
         </div>
@@ -37,9 +33,7 @@
                     id="inputPassword" type="password" name="password"
                     onkeyup=" return validateTextCol(this, 5); "/>
                 <#if passwordError??>
-                    <div class="invalid-feedback">
-                    ${passwordError}
-                    </div>
+                    <div class="invalid-feedback" id="password1">${passwordError}</div>
                 </#if>
             </div>
         </div>
@@ -52,9 +46,7 @@
             id="inputPassword" type="password" name="password2"
             onkeyup=" return validateTextCol(this, 5); "/>
             <#if password2Error??>
-                <div class="invalid-feedback">
-                ${password2Error}
-                </div>
+                <div class="invalid-feedback" id="password2">${password2Error}</div>
             </#if>
             </div>
             </div>

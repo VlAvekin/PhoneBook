@@ -1,6 +1,5 @@
 package com.vladavekin.phonebook.domain;
 
-import lombok.Data;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
 
@@ -12,7 +11,6 @@ import java.util.Objects;
 import java.util.Set;
 
 @Entity
-@Data
 @Table(name = "usr")
 public class User implements UserDetails {
 
@@ -83,5 +81,63 @@ public class User implements UserDetails {
     @Override
     public boolean isEnabled() {
         return active;
+    }
+
+    public Long getId() {
+        return id;
+    }
+
+    public void setId(Long id) {
+        this.id = id;
+    }
+
+    @Override
+    public String getUsername() {
+        return username;
+    }
+
+    public void setUsername(String username) {
+        this.username = username;
+    }
+
+    @Override
+    public String getPassword() {
+        return password;
+    }
+
+    public void setPassword(String password) {
+        this.password = password;
+    }
+
+    public String getPassword2() {
+        return password2;
+    }
+
+    public void setPassword2(String password2) {
+        this.password2 = password2;
+    }
+
+    public String getFullName() {
+        return fullName;
+    }
+
+    public void setFullName(String fullName) {
+        this.fullName = fullName;
+    }
+
+    public boolean isActive() {
+        return active;
+    }
+
+    public void setActive(boolean active) {
+        this.active = active;
+    }
+
+    public Set<PhoneBookData> getPhoneBookData() {
+        return phoneBookData;
+    }
+
+    public void setPhoneBookData(Set<PhoneBookData> phoneBookData) {
+        this.phoneBookData = phoneBookData;
     }
 }
